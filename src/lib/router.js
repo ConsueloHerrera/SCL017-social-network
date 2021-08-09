@@ -1,6 +1,7 @@
+// eslint-disable-next-line import/no-cycle
 import {
-  googleRegister, register, authObserver, menuMobile, logIn, googleLogIn, post, getPostFirebase,
-  signOutLogin, userNameImg,
+  register, authObserver, menuMobile, logIn, googleLogIn, post, getPostFirebase,
+  signOutLogin, userNameImg, menuFeedMobile, friendsFeedMobile,
 } from './index.js';
 import { welcomeTemplate } from './views/welcomeTemplate.js';
 import { aboutUsTemplate } from './views/aboutUsTemplate.js';
@@ -23,7 +24,7 @@ export const displayRespectiveTemplate = (hash) => {
     case '#/register':
       containerRoot.innerHTML = registerTemplate();
       register();
-      googleRegister();
+      googleLogIn();
       break;
     case '#/login':
       containerRoot.innerHTML = loginTemplate();
@@ -35,6 +36,8 @@ export const displayRespectiveTemplate = (hash) => {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           containerRoot.innerHTML = feedTemplate();
+          menuFeedMobile();
+          friendsFeedMobile();
           getPostFirebase();
           authObserver();
           post();
