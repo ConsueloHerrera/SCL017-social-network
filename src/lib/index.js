@@ -292,7 +292,9 @@ export function getPostFirebase() {
       likeBtn.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
           // obteniendo ID del post clikeado
-          const getPost = (id) => db.collection('Post').doc(id).get();
+          function getPost(id) {
+            return db.collection('Post').doc(id).get();
+          }
           const docPost = await getPost(e.target.dataset.id);
           const idDocData = (docPost.id);
           // console.log(idDocData);

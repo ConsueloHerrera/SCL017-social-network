@@ -7,7 +7,7 @@ import { aboutUsTemplate } from './views/aboutUsTemplate.js';
 import { registerTemplate } from './views/registerTemplate.js';
 import { loginTemplate } from './views/logInTemplate.js';
 import { feedTemplate } from './views/principalFeedTemplate.js';
-
+// esta funcion muestra el respectivo template de acuerdo al hash que tiene
 export const displayRespectiveTemplate = (hash) => {
   const containerRoot = document.getElementById('root');
 
