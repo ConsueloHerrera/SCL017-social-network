@@ -285,13 +285,13 @@ export function getPostFirebase() {
               likesRef.update({
                 like: firebase.firestore.FieldValue.arrayRemove(usuario.uid),
               });
-              // cambiar de color a negro (o normal)
+              // cambiar de color a negro (o normal no logrado aun)
             } else {
               // agregar el id al array
               likesRef.update({
                 like: firebase.firestore.FieldValue.arrayUnion(usuario.uid),
               });
-              // cambiar de color a rojo
+              // cambiar de color a rojo (no logrado aun)
             }
           });
         });
@@ -311,18 +311,21 @@ export function getPostFirebase() {
         formPost.value = editPostData.description;
         // --------------
         const EditPostBtn = document.querySelector('#btnPostEdit');
-
+        // Aqui actualizamos lo editado en el input de texto del contenedor de edición
         EditPostBtn.addEventListener('click', async () => {
           e.preventDefault();
           const edit = db.collection('Post').doc(idPostedit);
           edit.update({
             description: document.getElementById('textPostInputEdit').value,
           });
+          // Aqui al editar va a remover el contenedor que edita el post y se va a reemplazar 
+          // por el nuevo y va  a volver a traer el feed
           const containerEdit = await document.getElementById('containerEdit');
           containerEdit.remove();
           getPostFirebase();
           menuFeedMobile();
         });
+        // Aqui al cancelar se remueve el contenedor de edicion y muestra el feed
         const btnCancelEdit = document.getElementById('btnPostCancelEdit');
         btnCancelEdit.addEventListener('click', () => {
           const containerEdit = document.getElementById('containerEdit');

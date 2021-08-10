@@ -325,6 +325,7 @@ box-sizing: border-box;
     display: flex;
     width: 50%;
     justify-content: space-around;
+        align-items: flex-end;
 } 
 .btnpostAndUploadPic{
     display: flex;
@@ -583,7 +584,7 @@ box-sizing: border-box;
 .postGrid{
     padding: 1%;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: auto auto;
 }
 .newPost{
     padding: 4%;
