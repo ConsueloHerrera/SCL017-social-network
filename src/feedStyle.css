@@ -581,11 +581,7 @@ box-sizing: border-box;
 .profileName{
     font-size: medium;
 }
-.postGrid{
-    padding: 1%;
-    display: grid;
-    grid-template-columns: auto auto;
-}
+
 .newPost{
     padding: 4%;
     margin: 2%;
@@ -607,7 +603,7 @@ box-sizing: border-box;
 }
 .postGrid{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 50% 50%;
     
 }
 .formPostEdit{
